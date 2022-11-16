@@ -79,7 +79,7 @@ static void bilateral_filtering(Mat image) {
         const uchar* row = image.ptr<uchar>(i);
         for (int j = 0; j < image.cols; j++) {
             Pixel v(i, j);
-            printf("\nProcessing pixel (%d, %d) - Start",i, j);
+            //printf("\nProcessing pixel (%d, %d) - Start",i, j);
 			vector<Pixel> neighbors = spatial_neighborhood(v);
 
 			float num = 0.0f;
@@ -93,15 +93,13 @@ static void bilateral_filtering(Mat image) {
             filtered_img.at<float>(v.getX(), v.getY()) =  (num / normalization(v));
             //filtered_img.at<float>(v.getX(), v.getY()) =  0.0f;
             
-            printf("\nProcessing pixel (%d, %d) - End",i, j);
+            /*printf("\nProcessing pixel (%d, %d) - End", i, j);
             int val = (int)image.at<uchar>(v.getX(), v.getY());
             printf("\nOriginal Greyscale value for pixel (%d, %d) is %d",i, j, val);
             float val1 = (num / normalization(v));
-            printf("\nFiltered Greyscale value for pixel (%d, %d) is %f",i, j, val1);
+            printf("\nFiltered Greyscale value for pixel (%d, %d) is %f",i, j, val1);*/
         }
     }
-    cout << "\n\n\n";
-    cout << filtered_img;
     imwrite("bilateral_filtered_img.jpg", filtered_img);
 }
 
