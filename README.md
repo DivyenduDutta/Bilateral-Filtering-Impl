@@ -1,4 +1,4 @@
-# Bilateral-Filtering_Impl
+# Bilateral-Filtering-Impl
 Simple implementation of Bilateral Filtering from scratch
 
 Original Image
